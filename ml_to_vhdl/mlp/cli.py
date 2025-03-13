@@ -29,6 +29,8 @@ def mlp_cli(weights_file: str, biases_file: str, output_file: str, input_size: i
         weights_file=weights_file, biases_file=biases_file
     )
 
+    input_size = input_size if input_size else len(weights[0])
+
     generate_vhdl(weights, biases, input_size=input_size, output_file=output_file)
     logger.info("MLP VHDL generation complete.")
 
